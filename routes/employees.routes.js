@@ -59,7 +59,7 @@ router.put('/employees/:id', async (req, res) => {
   }
 });
 
-router.delete('/employees/:id', (req, res) => {
+router.delete('/employees/:id', async (req, res) => {
   try {
     const emp = await Employee.findById(req.params.id);
     if(emp) {
