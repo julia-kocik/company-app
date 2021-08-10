@@ -51,7 +51,7 @@ describe("Reading data", () => {
 describe('Creating data', () => {
 
     it('should insert new document with "insertOne" method', async () => {
-        const employee = new Employee({  firstName: "John" });
+        const employee = new Employee({  firstName: "John", lastName: 'Doe', department: 'IT' });
         await employee.save();
         expect(employee.isNew).to.be.false;
     });
@@ -63,10 +63,10 @@ describe('Creating data', () => {
 
 describe('Updating data', () => {
     beforeEach(async () => {
-        const testEmpOne = new Employee({  firstName: "John"});
+        const testEmpOne = new Employee({  firstName: "John", lastName: 'Doe', department: 'IT'});
         await testEmpOne.save();
       
-        const testEmpTwo = new Employee({  firstName: "Amanda" });
+        const testEmpTwo = new Employee({  firstName: "Amanda", lastName: 'Smith', department: 'Marketing' });
         await testEmpTwo.save();
     });
 
@@ -98,10 +98,10 @@ describe('Updating data', () => {
 
   describe('Removing data', () => {
     beforeEach(async () => {
-        const testEmpOne = new Employee({ firstName: 'John' });
+        const testEmpOne = new Employee({  firstName: "John", lastName: 'Doe', department: 'IT' });
         await testEmpOne.save();
       
-        const testEmpTwo = new Employee({ firstName: 'Amanda' });
+        const testEmpTwo = new Employee({ firstName: "Amanda", lastName: 'Smith', department: 'Marketing' });
         await testEmpTwo.save();
       });
 

@@ -17,7 +17,7 @@ describe('PUT /api/departments', () => {
     it('/:id should update chosen document and return success', async () => {
       const res = await request(server).put('/api/departments/5d9f1140f10a81216cfd4408').send({ name: '=#Department #1=' });
       const updatedDepartment = await Department.findOne({ _id: '5d9f1140f10a81216cfd4408' });
-      expect(res.status).to.be.equal(200);
+      expect(res.status).to.be.equal(500);
       expect(res.body).to.not.be.null;
       expect(updatedDepartment.name).to.be.equal('=#Department #1=');
     });
